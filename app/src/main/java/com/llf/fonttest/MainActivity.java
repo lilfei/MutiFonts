@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -12,6 +13,8 @@ public class MainActivity extends AppCompatActivity {
     static {
         System.loadLibrary("native-lib");
     }
+
+    MyView myView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
         TextView tv_2 = (TextView) findViewById(R.id.tv_2);
         Typeface typeFace2 = Typeface.createFromAsset(getAssets(), "fonts/SIMLI.TTF");
         tv_2.setTypeface(typeFace2);
+
+
+        myView = (MyView) findViewById(R.id.myView);
+        myView.start();
     }
 
     /**
